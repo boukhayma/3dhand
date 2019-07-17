@@ -1,0 +1,42 @@
+#!/bin/bash
+	
+gnuplot << 'EOF'
+set output "fig7.pdf"
+set terminal pdfcairo font "Gill Sans,5" linewidth 5 rounded fontscale 1.4
+set style line 80 lt rgb "#808080"
+set style line 81 lt 0  # dashed
+set style line 81 lt rgb "#808080"  # grey
+set grid back linestyle 81
+set border 3 back linestyle 80 # Remove border on top and right. 
+set xtics nomirror
+set ytics nomirror
+set style line 1 lt rgb "#ff0000" lw 1.2 pt 1
+set style line 2 lt rgb "#FF8C00" lw 1.2 pt 1 
+set style line 3 lt rgb "#ffdf00" lw 1.2 pt 1
+set style line 4 lt rgb "#0000ff" lw 1.2 pt 1
+set style line 5 lt rgb "#00bfff" lw 1.2 pt 1
+set style line 6 lt rgb "#228b22" lw 1.2 pt 1
+set style line 7 lt rgb "#7cfc00" lw 1.2 pt 1
+set style line 8 lt rgb "#c970db" lw 1.2 pt 1
+set key bottom right
+set key samplen 1
+set key invert
+set key font ",5"
+set key width 0
+set key box linestyle 80
+set key box opaque
+set xrange [20:50]
+set xlabel 'Error Thresholds (mm)' offset 0,0.3
+set ylabel '3D PCK' offset 1.7,0
+
+plot 'zb' using ($0):($1) with lines ls 7 title 'Zimm. et al.',\
+'vae' using ($0):($1) with lines ls 6 title 'Spurr et al.',\
+'Iqbal' using ($1):($2) with lines ls 5 title 'Iqbal et al.',\
+'2dfit' using ($0):($1) with lines ls 4 title '2D fit',\
+'rgb' using ($0):($1) with lines ls 1 title 'Ours RGB',\
+'rgb+2d' using ($0):($1) with lines ls 2 title 'Ours RGB+2D',\
+'2d' using ($0):($1) with lines ls 3 title 'Ours 2D',\
+
+EOF
+
+
