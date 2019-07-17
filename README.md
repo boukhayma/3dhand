@@ -19,7 +19,12 @@ where `dataset` is one of `{stereo, egodexter, dexter+object, mpii+nzsl}` and `f
 + [MANO](http://mano.is.tue.mpg.de/) 
 
 ## Testing
-Run the following command to test our method on cropped image examples in `/data/cropped`. 
+Download the model weights. Put model-0.pth and model-1.pth in directory `data`.
+```
+https://drive.google.com/file/d/1Ar9gUuq1kpVUUOlGsuOqfeiyv2GdixS9
+https://drive.google.com/file/d/135Ka6XQVcFBGTLyVu1D0dzXOcc-0XNao
+```
+Run the following command to test our method on cropped image examples in `data/cropped`. 
 ```
 python tester.py
 ```
@@ -27,7 +32,7 @@ Our resnet+Mano model in implemented in `model.py`.
 
 ## Data preprocessing
 Input images are assumed to be crops of fixed size around the hand. Using this command, we find the tightest rectangular box of edge size
-l containing the hand. Images are then cropped with a square patch of size 2.2xl. Input images are located in `/data/original` and cropped images are saved in `/data/cropped`.
+l containing the hand. Images are then cropped with a square patch of size 2.2xl. Input images are located in `data/original` and cropped images are saved in `data/cropped`.
 ```
 python crop.py
 ```
@@ -41,11 +46,11 @@ python segment.py
 ``` 
  
 ## Synthetic data creation
-This command colors registered meshes in `/data/meshes_registered` using their colored corresponding unregistered meshes in `/data/meshes_unregistered`. Results are saved in `/data/meshes_colored`.         
+This command colors registered meshes in `data/meshes_registered` using their colored corresponding unregistered meshes in `data/meshes_unregistered`. Results are saved in `data/meshes_colored`.         
 ```
 python create_colored_meshes.py
 ```
-Using mesh colour instances in `/data/meshes_colored`, background images in `/data/backgrounds`, and sampling global poses and geometries from MANO, this command creates synthetic image examples. 
+Using mesh colour instances in `data/meshes_colored`, background images in `data/backgrounds`, and sampling global poses and geometries from MANO, this command creates synthetic image examples. 
 ```
 python create_synthetic_data.py
 ```
