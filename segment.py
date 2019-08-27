@@ -43,7 +43,15 @@ for ii in xrange(3):
         p2v = int(anno[ii][2*e[1]+1])    
 
         cv.line(mask, (p1u,p1v), (p2u,p2v), 3, 70)
+    
+    for e in edges:
+        p1u = int(anno[ii][2*e[0]])
+        p1v = int(anno[ii][2*e[0]+1]) 
+        p2u = int(anno[ii][2*e[1]])
+        p2v = int(anno[ii][2*e[1]+1])    
 
+        cv.line(mask, (p1u,p1v), (p2u,p2v), 1, 1)
+       
     poly_list = [[0,17,18],[0,17,1],[0,1,5],[0,5,13],[0,13,9]]
     polys = []             
 
