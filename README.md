@@ -28,7 +28,7 @@ Run the following command to test our method on cropped image examples in `data/
 ```
 python tester.py
 ```
-Our resnet+Mano model in implemented in `model.py`.
+Our resnet+Mano model is implemented in `model.py`.
 
 ## Data preprocessing
 Input images are assumed to be crops of fixed size around the hand. Using this command, we find the tightest rectangular box of edge size
