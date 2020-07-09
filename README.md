@@ -12,23 +12,10 @@ cd PCK/dataset
 ```
 where `dataset` is one of `{stereo, egodexter, dexter+object, mpii+nzsl}` and `figx` is one of `{fig4,5,6,7,8}`. 
 
-
 ## Requirements
 + Python 2.7
 + PyTorch 0.3
 + [MANO](http://mano.is.tue.mpg.de/) 
-
-## Testing
-Download the model weights. Put model-0.pth and model-1.pth in directory `data`.
-```
-https://drive.google.com/file/d/1Ar9gUuq1kpVUUOlGsuOqfeiyv2GdixS9
-https://drive.google.com/file/d/135Ka6XQVcFBGTLyVu1D0dzXOcc-0XNao
-```
-Run the following command to test our method on cropped image examples in `data/cropped`. 
-```
-python tester.py
-```
-Our resnet+Mano model is implemented in `model.py`.
 
 ## Data preprocessing
 Input images are assumed to be crops of fixed size around the hand. Using this command, we find the tightest rectangular box of edge size
@@ -44,6 +31,17 @@ This command generates hand image segmentations using 2D joint locations and Gra
 ```
 python segment.py
 ``` 
+## Testing
+Download the model weights. Put model-0.pth and model-1.pth in directory `data`.
+```
+https://drive.google.com/file/d/1Ar9gUuq1kpVUUOlGsuOqfeiyv2GdixS9
+https://drive.google.com/file/d/135Ka6XQVcFBGTLyVu1D0dzXOcc-0XNao
+```
+Run the following command to test our method on cropped image examples in `data/cropped`. 
+```
+python tester.py
+```
+Our resnet+Mano model is implemented in `model.py`.
  
 ## Synthetic data creation
 This command colors registered meshes in `data/meshes_registered` using their colored corresponding unregistered meshes in `data/meshes_unregistered`. Results are saved in `data/meshes_colored`.         
@@ -54,7 +52,6 @@ Using mesh colour instances in `data/meshes_colored`, background images in `data
 ```
 python create_synthetic_data.py
 ```
-
 
 ## Citation
     @inproceedings{boukhayma20193d,
