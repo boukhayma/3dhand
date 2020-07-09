@@ -1,5 +1,5 @@
 # 3D Hand Shape and Pose from Images in the Wild
-Adnane Boukhayma, Rodrigo de Bem, Philip H.S. Torr, 
+Adnane Boukhayma, Rodrigo de Bem, Philip H.S. Torr.
 [CVPR 2019 (Oral)](https://arxiv.org/abs/1902.03451)
 
 <img src="pipeline.png" height="200"/>
